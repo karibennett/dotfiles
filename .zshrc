@@ -1,7 +1,7 @@
 # Find and set branch name var if in git repository
 function parse_git_branch()
 {
-  branch=$(git symbolic-ref HEAD 2> /dev/null | awk 'BEGIN{FS="/"} {print $NF}')
+  branch=$(git branch 2> /dev/null | sed -n -e 's/^\* \(.*\)/\1/p')
   if [[ $branch == "" ]];
   then
     :
