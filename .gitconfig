@@ -6,3 +6,9 @@
 	stashes = stash list
 	amend = commit --amend
 	new = checkout -b
+	rename = branch -m
+	force = push --force-with-lease
+	apply = "!sh -c 'git stash apply stash@{$1}' -"
+
+[push]
+	autoSetupRemote = true
